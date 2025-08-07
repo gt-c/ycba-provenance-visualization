@@ -1,0 +1,32 @@
+I will provide you with the provenance for an artwork with ID <INSERT ID HERE> and title <INSERT TITLE HERE>. The provenance is delimited by semicolons in chronological order with each entry suggesting a location, person/entity/organization, date, and how the art was obtained. The intent for this is to then have this information displayed on a map with connecting markers to display the art's travel over time. You will then output this information into the following structure and send it in a formatted JSON markdown block:
+
+{
+	id: int,
+	name: string,
+	entries: [
+		{
+			location: string,
+			owner: string,
+			action: string, // lowercase representation of how the art was acquired in this entry, e.g. "acquired by", "by descent to", etc
+			date: string, // the date the artwork was acquired by this owner
+			next_location_unknown: boolean // true if the next provenance entry is unknown
+		},
+		...
+	]
+}
+
+Rules and clarifications:
+- Every semicolon denotes an entirely different entry, **DO NOT** overlap information between entries.
+- If any information in a given entry is unavailable (e.g. date, location, owner), simply exclude it from the object. Do not replace it with an empty string.
+- If an artwork is purchased at auction (or otherwise acquired) by one party acting on behalf of another, this may be split into two entries only if the acquisition location and final ownership location are different, and
+ it improves geographic clarity for mapping purposes. In these situations, action should be "purchased at auction for" and the owner should be "<agent name> for <owner name>". The second entry should simply use the action "acquired by" and owner "owner name".
+- If an object is passed down via descent and no location is specified in that entry, the location of the last known ancestor must be used if it exists.
+- The "next_location_unknown": true field should only be included for entries that have a known location and are followed by one or more unknown entries (e.g. a "..." marker).
+Example 1: entry 1 (with location); entry 2 (no location); ...; entry 3 — Entry 1 should have "next_location_unknown": true, but Entry 2 should not.
+Example 2: entry 1 (with location); entry 2 (with location); ...; entry 3 — Entry 2 should have "next_location_unknown": true, but Entry 1 should not.
+- Any "..." should never have its own entry.
+- Location fields should be as specific as provided in the entry. Do not leave out information, for example, do not simplify "City, Country" to just the city, nor simplify "Specific Location, City, Country" to just "City, Country"
+- Draw inferences about the location if applicable. For example, anything mentioning Yale is likely to be in New Haven, CT, so set the location field to that. 
+- The date field should capture the date the artwork was acquired by the listed owner (not their birth/death dates). The owner field may capture birth dates, which are encapsulated in parentheses.
+
+Here is the provenance: <INSERT PROVENANCE HERE>

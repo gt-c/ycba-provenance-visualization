@@ -1,0 +1,52 @@
+{
+  "id": 258,
+  "name": "A View from Hampstead Heath",
+  "entries": [
+    {
+      "owner": "John Constable (1775–1837)",
+      "action": "created by"
+    },
+    {
+      "owner": "Charles Golding Constable (1821–1879)",
+      "action": "possibly by descent to"
+    },
+    {
+      "location": "Invercargill, New Zealand",
+      "owner": "Charles Eustace Constable (1874–1899)",
+      "action": "by descent to"
+    },
+    {
+      "location": "London, England",
+      "owner": "Shepherd",
+      "action": "purchased at auction",
+      "date": "April 16, 1896",
+      "next_location_unknown": true
+    },
+    {
+      "owner": "W. A. Kluger",
+      "action": "acquired by"
+    },
+    {
+      "owner": "Ronald Brymer Beckett (1891–1970)",
+      "action": "acquired by",
+      "date": "by 1956"
+    },
+    {
+      "location": "London, England",
+      "owner": "John Baskett Ltd.",
+      "action": "purchased by",
+      "date": "December 1969"
+    },
+    {
+      "owner": "Paul Mellon (1907–1999)",
+      "action": "purchased by",
+      "date": "January 1970"
+    },
+    {
+      "location": "New Haven, CT, United States",
+      "owner": "Yale Center for British Art",
+      "action": "given to",
+      "date": "December 1976"
+    }
+  ]
+}
